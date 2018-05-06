@@ -5,6 +5,7 @@ using Ex03.GarageLogic;
 
 namespace Ex03.ConsoleUI
 {
+    //sdfasdfasdfasdf
     //public enum ActionOptions
     //{
     //    Exit = 0
@@ -25,6 +26,9 @@ namespace Ex03.ConsoleUI
         public ConsoleUser()
         {
             m_Garage = new Garage();
+
+
+
         }
 
         public void RunGarage()
@@ -78,6 +82,7 @@ namespace Ex03.ConsoleUI
             Console.Clear();
             Console.WriteLine("Enter 0 to show from In Repair vehicels. 1 to show from Repaired vehicles. 2 to Show from Paid vehicles. 3 to show all licnse plates. ");
             int vehicleStateInt = getIntInRanges(0, 3);
+
             if(vehicleStateInt == 3)
             {
                 Console.WriteLine(m_Garage.GetAllLicensePlates());
