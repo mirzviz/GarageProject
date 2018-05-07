@@ -11,7 +11,7 @@ namespace Ex03.GarageLogic
         public Truck(string i_WheelManufacturerName, string i_ModelName, string i_LicensePlate)
             : base(12, 28, i_WheelManufacturerName, i_ModelName, i_LicensePlate)
         {
-            Tank = new Tank(FuelType.Soler, 115f);
+            Tank = new Tank(EnergyType.Soler, 115f);
         }
 
         public bool IsTrunkCool

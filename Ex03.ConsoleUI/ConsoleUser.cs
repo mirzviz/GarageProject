@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic;
 
+
+
 namespace Ex03.ConsoleUI
 {
-    //sdfasdfasdfasdf
     //public enum ActionOptions
     //{
     //    Exit = 0
@@ -47,6 +48,7 @@ namespace Ex03.ConsoleUI
                                 showLicensePlatesByState();
                                 break;
 
+                            //TODO 3-6
 
 
 
@@ -68,7 +70,7 @@ namespace Ex03.ConsoleUI
                 RunGarage();
             }
 
-            catch(FormatException i_Exeption)
+            catch(FormatException)
             {
                 Console.WriteLine("Format Error!");
                 Console.ReadLine();
@@ -89,7 +91,7 @@ namespace Ex03.ConsoleUI
             }
             else
             {
-                Console.WriteLine(m_Garage.getLicensePlatesByState((VehicleState)vehicleStateInt));
+                Console.WriteLine(m_Garage.GetLicensePlatesByState((VehicleState)vehicleStateInt));
             }
         }
             

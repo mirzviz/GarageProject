@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Ex03.GarageLogic
 {
-    public enum FuelType
+    public enum EnergyType
     {
         Soler,
         Octan95,
@@ -16,11 +16,11 @@ namespace Ex03.GarageLogic
     public class Tank
     {
 
-        private readonly FuelType r_FuelType;
+        private readonly EnergyType r_FuelType;
         private float m_CurrentCapacity;
         private readonly float r_MaxCapacity;
 
-        public Tank(FuelType i_FuelType, float i_MaxCapacity)
+        public Tank(EnergyType i_FuelType, float i_MaxCapacity)
         {
             r_FuelType = i_FuelType;
             r_MaxCapacity = i_MaxCapacity;
@@ -33,9 +33,17 @@ namespace Ex03.GarageLogic
                 //  throw new ValueOutOfRangeException();
             }
             m_CurrentCapacity += i_EnergyToAdd;
-        }   
-        
-        public FuelType FuelType
+        }
+
+        public void Fuel(float i_EnergyToAdd, EnergyType i_FuelType)
+        {
+            if (r_FuelType == i_FuelType)
+            {
+                Fuel(i_EnergyToAdd);
+            }
+        }
+         
+        public EnergyType FuelType
         {
             get
             {
@@ -68,7 +76,7 @@ namespace Ex03.GarageLogic
         public override string ToString()
         {
             StringBuilder toString = new StringBuilder();
-            if(r_FuelType == FuelType.Electricity)
+            if(r_FuelType == EnergyType.Electricity)
             {
                 toString.AppendLine("Tank: Electric Tank");
                 toString.AppendLine();
@@ -85,6 +93,7 @@ namespace Ex03.GarageLogic
             return toString.ToString();
         }
 
+        //TODO delete?
         //private readonly float r_MaxCapacity;
         //private float m_CurrentCapacity;
 

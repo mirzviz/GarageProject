@@ -16,7 +16,6 @@ namespace Ex03.GarageLogic
             r_MaxAirPressuer = i_MaxAirPressuer;
             m_CurrentAirPressure = 0;
         }
-
         public override string ToString()
         {
             StringBuilder toString = new StringBuilder();
@@ -25,14 +24,17 @@ namespace Ex03.GarageLogic
 
             return toString.ToString(); 
         }
-        public void Inflate(float i_WantedPressuer)
+        public void Inflate(float i_AddedPressuer)
         {
-            if(i_WantedPressuer > m_CurrentAirPressure && i_WantedPressuer <= r_MaxAirPressuer)
+            if (i_AddedPressuer > 0 && (m_CurrentAirPressure + i_AddedPressuer) <= r_MaxAirPressuer)
             {
-                m_CurrentAirPressure = i_WantedPressuer;
+                m_CurrentAirPressure = i_AddedPressuer;
             }
         }
-
+        public void InflateToMax()
+        {
+            Inflate(r_MaxAirPressuer - m_CurrentAirPressure);
+        }
         public float CurrentAirPressuer
         {
             get
@@ -56,8 +58,7 @@ namespace Ex03.GarageLogic
             get
             {
                 return r_ManufacturerName;
-            }
-            
+            }            
         }
     }
 }

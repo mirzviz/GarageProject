@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -71,6 +72,11 @@ namespace Ex03.GarageLogic
         public void Fuel(float i_Amount)
         {
             m_Tank.Fuel(i_Amount);
+        }
+
+        public void Fuel(float i_EnergyToAdd, EnergyType i_FuelType)
+        {
+            m_Tank.Fuel(i_EnergyToAdd, i_FuelType);
         }
 
         protected Tank Tank

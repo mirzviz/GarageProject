@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic
         public CombustionMotorcycle(string i_WheelManufacturerName, string i_ModelName, string i_LicensePlate) 
             : base(2, 30, i_WheelManufacturerName, i_ModelName, i_LicensePlate)
         {
-            Tank = new Tank(FuelType.Octan96, 6);
+            Tank = new Tank(EnergyType.Octan96, 6);
         }
 
         public MotorcycleProperties MotorcycleProperties

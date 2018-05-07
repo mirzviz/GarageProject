@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic
 
         public ElectricMotorcycle(string i_WheelManufacturerName, string i_ModelName, string i_LicensePlate) : base(2, 30, i_WheelManufacturerName, i_ModelName, i_LicensePlate)
         {
-            Tank = new Tank(FuelType.Electricity, 1.8f);
+            Tank = new Tank(EnergyType.Electricity, 1.8f);
         }
 
         public MotorcycleProperties MotorcycleProperties
