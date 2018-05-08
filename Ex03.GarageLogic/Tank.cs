@@ -92,34 +92,7 @@ namespace Ex03.GarageLogic
 
             return toString.ToString();
         }
-
-        //TODO delete?
-        //private readonly float r_MaxCapacity;
-        //private float m_CurrentCapacity;
-
-        //protected Tank(float i_MaxCapacity)
-        //{
-        //    r_MaxCapacity = i_MaxCapacity;
-        //    m_CurrentCapacity = 0;
-        //}
-
-        //public void Fuel(float i_Amount)
-        //{
-        //    if (i_Amount < 0 || m_CurrentCapacity + i_Amount > r_MaxCapacity)
-        //    {
-        //        //throw new ValueOutOfRangeException();
-        //    }
-        //    m_CurrentCapacity += i_Amount;
-        //}
-
-        //public float RemainingEnergyPercentage
-        //{
-        //    get
-        //    {
-        //       return (m_CurrentCapacity / r_MaxCapacity) * 100;
-        //    }
-        //}
-
+        
 
 
     }
