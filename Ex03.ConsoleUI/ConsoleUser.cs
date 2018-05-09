@@ -31,8 +31,10 @@ namespace Ex03.ConsoleUI
                             case 2:
                                 showLicensePlatesByState();
                                 break;
-
-                            //TODO 3-6
+                            case 3:
+                                changeVehiclesStatus();
+                                break;
+                            
 
 
 
@@ -87,13 +89,15 @@ namespace Ex03.ConsoleUI
             else
             {
                 Console.WriteLine(m_Garage.GetLicensePlatesByState((VehicleState)vehicleStateInt));
-                Console.ReadLine();
             }
+
+            Console.ReadLine();
         }
             
         private void printAllVehicles()
         {
             Console.WriteLine(m_Garage.ToString());
+            Console.ReadLine();
         }
 
         private void addVehicle()
@@ -254,6 +258,11 @@ namespace Ex03.ConsoleUI
             }
 
             return inputInt;
+        }
+
+        private void changeVehiclesStatus()
+        {
+
         }
     }
 }

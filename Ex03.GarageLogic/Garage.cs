@@ -51,12 +51,6 @@ namespace Ex03.GarageLogic
             return vehicleWanted;
         }
         
-        /*
-        1. י"להכניס" רכב חדש למוסך. אם מנסים להכניס רכב שכבר נמצא במוסך
-        (עפ"י מספר רישוי),
-        המערכת תוציא הודעה מתאימה ותשתמש ברכב שכבר נמצא במוסך
-        (ותעביר את מצב הרכב ל- "בתיקון")
-        */
         public void AddVehicle(VehicleInGarage m_VehicleToAdd)
         {
             VehicleInGarage vehicleWithSameLicensePlate = find(m_VehicleToAdd.Vehicle.LicensePlate);
@@ -68,10 +62,6 @@ namespace Ex03.GarageLogic
             m_Vehicles.Add(m_VehicleToAdd);
         }
 
-        /*
-        2. להציג את רשימת את מספרי הרישוי של הרכבים במוסך, עם אפשרות לסינון לפי המצב
-        שלהם במוסך.
-        */
         public string GetAllLicensePlates()
         {
             StringBuilder licensePlates = new StringBuilder();
@@ -105,14 +95,12 @@ namespace Ex03.GarageLogic
         {
             //TODO
             VehicleInGarage vehicle = find(i_LicensePlate);
-            if (vehicle != null)
+            if (vehicle == null)
             {
-                vehicle.VehicleState = i_VehicleState;
+                throw new Exception("Changing state failed. Vehicl's license plate wasn't found");
             }
-            else
-            {
-                //TODO NotExsistException
-            }
+
+            vehicle.VehicleState = i_VehicleState;
         }
 
 
