@@ -111,7 +111,7 @@ namespace Ex03.GarageLogic
         public void chargeVehicle(string i_LicencePlate, float i_AddedTime)
         {
             VehicleInGarage vehicleInGarage = find(i_LicencePlate);
-            if (vehicleInGarage != null)
+            if (vehicleInGarage == null)
             {
                 throw new Exception("Can't charge! The vehicle's license plate is not found");
             }

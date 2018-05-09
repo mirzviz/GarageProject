@@ -41,6 +41,7 @@ namespace Ex03.ConsoleUI
                                 fuelVehicle();
                                 break;
                             case 6:
+                                chargeVehicle();
                                 break;
                             case 7:
                                 printAllVehicles();
@@ -80,9 +81,22 @@ namespace Ex03.ConsoleUI
             }
         }
 
-        private void fuelVehicle()
+        private void chargeVehicle()
         {
-            Console.WriteLine("Enter the amount of fuel to be added");
+            Console.WriteLine("Enter the amount of time to be added.");
+            string stringAmount = Console.ReadLine();
+            float floatAmount;
+            if (!float.TryParse(stringAmount, out floatAmount))
+            {
+                throw new FormatException();
+            }
+
+            m_Garage.chargeVehicle(getLicnsePlateFromUser(), floatAmount);
+        }
+
+        private void fuelVehicle()
+        {   
+            Console.WriteLine("Enter the amount of fuel to be added.");
             string stringAmount = Console.ReadLine();
             float floatAmount;
             if(!float.TryParse(stringAmount, out floatAmount))
@@ -90,7 +104,8 @@ namespace Ex03.ConsoleUI
                 throw new FormatException();
             }
 
-            Console.WriteLine("Enter the wanted fuel type");
+            Console.WriteLine("Enter the wanted fuel type:");
+            Console.WriteLine("0 - Soler. 1 - Octan95. 2 - Octan96. 3 - Octan98");
             int intFuelType = getIntInRanges(0, 3);
             m_Garage.fuelVehicle(getLicnsePlateFromUser(), (EnergyType)intFuelType, floatAmount);
         }
