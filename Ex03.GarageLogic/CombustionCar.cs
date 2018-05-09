@@ -6,7 +6,8 @@ namespace Ex03.GarageLogic
 {
     public class CombustionCar : Vehicle
     {
-        CarProperties m_CarProperties;
+        private CarProperties m_CarProperties;
+
         public CombustionCar(string i_WheelManufacturerName, string i_ModelName, string i_LicensePlate) 
             : base(4, 32, i_WheelManufacturerName, i_ModelName, i_LicensePlate)
         {
@@ -19,6 +20,7 @@ namespace Ex03.GarageLogic
             {
                 return m_CarProperties;
             }
+
             set
             {
                 m_CarProperties = value;

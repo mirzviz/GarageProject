@@ -16,8 +16,8 @@ namespace Ex03.GarageLogic
     public class Tank
     {
         private readonly EnergyType r_EnergyType;
-        private float m_CurrentCapacity;
         private readonly float r_MaxCapacity;
+        private float m_CurrentCapacity;
 
         public Tank(EnergyType i_FuelType, float i_MaxCapacity)
         {
@@ -47,6 +47,7 @@ namespace Ex03.GarageLogic
                 return r_EnergyType;
             }
         } 
+
         public float MaxCapacity
         {
             get
@@ -54,6 +55,7 @@ namespace Ex03.GarageLogic
                 return r_MaxCapacity;
             }
         }
+
         public float CurrentCapacity
         {
             get
@@ -85,6 +87,7 @@ namespace Ex03.GarageLogic
                 toString.AppendLine();
                 toString.AppendFormat("{0} Liters of {1} fuel are left out of {2} liters", m_CurrentCapacity, r_EnergyType , r_MaxCapacity);
             }
+
             toString.AppendLine();
 
             return toString.ToString();

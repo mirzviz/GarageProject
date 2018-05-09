@@ -19,6 +19,7 @@ namespace Ex03.GarageLogic
             {
                 return m_MotorcycleProperties;
             }
+
             set
             {
                 m_MotorcycleProperties = value;

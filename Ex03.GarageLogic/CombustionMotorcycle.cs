@@ -7,6 +7,7 @@ namespace Ex03.GarageLogic
     public class CombustionMotorcycle : Vehicle
     {
         private MotorcycleProperties m_MotorcycleProperties;
+
         public CombustionMotorcycle(string i_WheelManufacturerName, string i_ModelName, string i_LicensePlate) 
             : base(2, 30, i_WheelManufacturerName, i_ModelName, i_LicensePlate)
         {
@@ -19,6 +20,7 @@ namespace Ex03.GarageLogic
             {
                 return m_MotorcycleProperties;
             }
+
             set
             {
                 m_MotorcycleProperties = value;

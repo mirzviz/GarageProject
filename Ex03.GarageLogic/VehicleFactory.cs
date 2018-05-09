@@ -12,6 +12,7 @@ namespace Ex03.GarageLogic
         CombustionMotorcycle,
         Truck
     }
+
     public class VehicleFactory
     {
         private const string m_supports = "Electric Car, Combustion Car, Electric Motorcycle, Combustion Motorcycle, Truck";

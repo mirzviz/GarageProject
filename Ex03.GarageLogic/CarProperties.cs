@@ -11,10 +11,11 @@ namespace Ex03.GarageLogic
         White,
         Black
     }
+
     public struct CarProperties
     {
-        Color m_Color;
-        int m_numOfDoors;
+        private Color m_Color;
+        private int m_numOfDoors;
 
         public CarProperties(Color i_Color, int i_numOfDoor)
         {

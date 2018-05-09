@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -39,6 +38,7 @@ namespace Ex03.GarageLogic
             {
                 toString.AppendLine(wheel.ToString());
             }
+
             toString.AppendLine("-------------------------------Tank info---------------------------");
             toString.AppendLine(m_Tank.ToString());
             toString.AppendLine("-------------------------------Extra info--------------------------");
@@ -67,11 +67,6 @@ namespace Ex03.GarageLogic
             {
                 return m_Tank.RemainingEnergyPercentage;
             }
-        }
-
-        public void Charge(float i_Amount)
-        {
-            
         }
 
         public void FillTank(float i_EnergyToAdd, EnergyType i_FuelType)

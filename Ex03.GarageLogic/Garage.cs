@@ -58,7 +58,6 @@ namespace Ex03.GarageLogic
             return licensePlates.ToString();
         }
 
-        //עם אפשרות לסינון לפי המצב שלהם במוסך
         public string GetLicensePlatesByState(VehicleState i_vehicleState)
         {
             StringBuilder licensePlates = new StringBuilder();
@@ -84,7 +83,6 @@ namespace Ex03.GarageLogic
 
             vehicle.VehicleState = i_VehicleState;
         }
-
 
         public void InflateAllWheelsToMax(string i_LicensePlate)
         {
@@ -127,15 +125,15 @@ namespace Ex03.GarageLogic
                 toString.AppendLine("The garage is empty!");
                 goto END;
             }
+
             foreach (VehicleInGarage vehicleInGarage in m_Vehicles)
             {
                 toString.Append(vehicleInGarage.ToString());
             }
-            toString.AppendLine();
 
+            toString.AppendLine();
             END:
             return toString.ToString();
         }
     }
-
 }

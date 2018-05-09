@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using Ex03.GarageLogic;
 
-
-
 namespace Ex03.ConsoleUI
 {
     public class ConsoleUser
     {
-        Garage m_Garage;
+        private Garage m_Garage;
 
         public ConsoleUser()
         {
@@ -51,28 +49,24 @@ namespace Ex03.ConsoleUI
                         action = getALeagalActionFromUser();
                 }
             }
-
             catch(ValueOutOfRangeException i_Exeption)
             {
                 Console.WriteLine("Value out of range! min value: {0}. max value: {1}.", i_Exeption.MinValue, i_Exeption.MaxValue);
                 Console.ReadLine();
                 RunGarage();
             }
-
             catch(FormatException)
             {
                 Console.WriteLine("Format Error!");
                 Console.ReadLine();
                 RunGarage();
             }
-
             catch(ArgumentException)
             {
                 Console.WriteLine("Logical error: wrong energy type");
                 Console.ReadLine();
                 RunGarage();
             }
-            
             catch(Exception Exception)
             {
                 Console.WriteLine(Exception.Message);
@@ -115,6 +109,7 @@ namespace Ex03.ConsoleUI
             string licensePlate = getLicnsePlateFromUser();
             m_Garage.InflateAllWheelsToMax(licensePlate);
         }
+
         private void showLicensePlatesByState()
         {
             Console.Clear();
@@ -274,12 +269,11 @@ namespace Ex03.ConsoleUI
             Console.WriteLine("6 - Charge a vehicle");
             Console.WriteLine("7 - Show all the cars in the garage");
             Console.WriteLine("Enter action:");
-            int inputInt =  getIntInRanges(0, 7);
+            int inputInt = getIntInRanges(0, 7);
             Console.Clear();
 
             return inputInt;
         }
-
 
         private int getIntInRanges(int i_Low, int i_High)
         {

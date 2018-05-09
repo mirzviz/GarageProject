@@ -6,8 +6,9 @@ namespace Ex03.GarageLogic
 {
     public class Truck : Vehicle
     {
-        bool m_IsTrunkCool;
-        float m_TrunkSize;
+        private bool m_IsTrunkCool;
+        private float m_TrunkSize;
+
         public Truck(string i_WheelManufacturerName, string i_ModelName, string i_LicensePlate)
             : base(12, 28, i_WheelManufacturerName, i_ModelName, i_LicensePlate)
         {
@@ -20,6 +21,7 @@ namespace Ex03.GarageLogic
             {
                 return m_IsTrunkCool;
             }
+
             set
             {
                 m_IsTrunkCool = value;
@@ -32,6 +34,7 @@ namespace Ex03.GarageLogic
             {
                 return m_TrunkSize;
             }
+
             set
             {
                 m_TrunkSize = value;
@@ -42,7 +45,7 @@ namespace Ex03.GarageLogic
         {
             StringBuilder toString = new StringBuilder();
             toString.AppendLine(base.ToString());
-            toString.AppendFormat("The Trumk is Cool: {0}. The Trunk's size is: {1}. ",m_IsTrunkCool, m_TrunkSize);
+            toString.AppendFormat("The Trumk is Cool: {0}. The Trunk's size is: {1}. ", m_IsTrunkCool, m_TrunkSize);
             toString.AppendLine();
 
             return toString.ToString();

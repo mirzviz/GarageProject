@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic
         private string m_PhoneOfOwner;
         private VehicleState m_VehicleState;
        
-        Vehicle m_Vehicle;
+        private Vehicle m_Vehicle;
         
         public VehicleInGarage(string i_NameOfOwner, string i_PhoneOfOwner, Vehicle i_Vehicle)
         {
@@ -26,6 +26,7 @@ namespace Ex03.GarageLogic
             {
                 return m_Vehicle;
             }
+
             set
             {
                 m_Vehicle = value;
@@ -38,6 +39,7 @@ namespace Ex03.GarageLogic
             {
                 return m_VehicleState;
             }
+
             set
             {
                 m_VehicleState = value;
