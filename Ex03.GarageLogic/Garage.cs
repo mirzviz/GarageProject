@@ -130,19 +130,24 @@ namespace Ex03.GarageLogic
         public void fuelVehicle(string i_LicencePlate, EnergyType i_FuelType, float i_AddedFuel)
         {
             VehicleInGarage vehicleInGarage = find(i_LicencePlate);
-            if (vehicleInGarage != null)
+            if (vehicleInGarage == null)
             {
-                vehicleInGarage.Vehicle.Fuel(i_AddedFuel, i_FuelType);
+                throw new Exception("Can't fuel! The vehicle's license plate is not found");
             }
+
+            vehicleInGarage.Vehicle.FillTank(i_AddedFuel, i_FuelType);
+
         }
 
-        public void chargeVehicle(string i_LicencePlate, float i_AddedFuel)
+        public void chargeVehicle(string i_LicencePlate, float i_AddedTime)
         {
             VehicleInGarage vehicleInGarage = find(i_LicencePlate);
             if (vehicleInGarage != null)
             {
-                vehicleInGarage.Vehicle.Fuel(i_AddedFuel);
+                throw new Exception("Can't charge! The vehicle's license plate is not found");
             }
+
+            vehicleInGarage.Vehicle.FillTank(i_AddedTime, EnergyType.Electricity);
         }
 
         public override string ToString()

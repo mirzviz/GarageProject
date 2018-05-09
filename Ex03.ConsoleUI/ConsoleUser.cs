@@ -41,7 +41,6 @@ namespace Ex03.ConsoleUI
                                 break;
                         }   
 
-                        Console.ReadLine();
                         action = getALeagalActionFromUser();
                 }
             }
@@ -50,7 +49,6 @@ namespace Ex03.ConsoleUI
             {
                 Console.WriteLine("Value out of range! min value: {0}. max value: {1}.", i_Exeption.MinValue, i_Exeption.MaxValue);
                 Console.ReadLine();
-
                 RunGarage();
             }
 
@@ -60,7 +58,20 @@ namespace Ex03.ConsoleUI
                 Console.ReadLine();
                 RunGarage();
             }
+
+            catch(ArgumentException)
+            {
+                Console.WriteLine("Logical error: wrong energy type");
+                Console.ReadLine();
+                RunGarage();
+            }
             
+            catch(Exception Exception)
+            {
+                Console.WriteLine(Exception.Message);
+                Console.ReadLine();
+                RunGarage();
+            }
         }
 
         private void showLicensePlatesByState()
@@ -76,6 +87,7 @@ namespace Ex03.ConsoleUI
             else
             {
                 Console.WriteLine(m_Garage.GetLicensePlatesByState((VehicleState)vehicleStateInt));
+                Console.ReadLine();
             }
         }
             
@@ -213,11 +225,11 @@ namespace Ex03.ConsoleUI
             Console.Clear();
             Console.WriteLine("0 - Quit");
             Console.WriteLine("1 - Add a vehicle to the garage");
-            Console.WriteLine("2 - Show License Plates");
+            Console.WriteLine("2 - Show license plates");
             Console.WriteLine("3 - Change a vehicle's status");
-            Console.WriteLine("4 - Inflate all tires ");
-            Console.WriteLine("5 - Fuel up a tank");
-            Console.WriteLine("6 - Charge a battery ");
+            Console.WriteLine("4 - Inflate all tires");
+            Console.WriteLine("5 - Fuel a vehicle");
+            Console.WriteLine("6 - Charge a vehicle");
             Console.WriteLine("7 - Show all the cars in the garage");
             Console.WriteLine("Enter action:");
             int inputInt =  getIntInRanges(0, 7);

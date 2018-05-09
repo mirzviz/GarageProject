@@ -15,7 +15,6 @@ namespace Ex03.GarageLogic
 
     public class Tank
     {
-
         private readonly EnergyType r_EnergyType;
         private float m_CurrentCapacity;
         private readonly float r_MaxCapacity;
@@ -26,21 +25,19 @@ namespace Ex03.GarageLogic
             r_MaxCapacity = i_MaxCapacity;
         }
         
-        public void Fuel(float i_EnergyToAdd)
+        public void FillTank(float i_EnergyToAdd, EnergyType i_FuelType)
         {
+            if (r_EnergyType != i_FuelType)
+            {
+                throw new ArgumentException();
+            }
+
             if (i_EnergyToAdd < 0 || m_CurrentCapacity + i_EnergyToAdd > r_MaxCapacity)
             {
-                //  throw new ValueOutOfRangeException();
+                throw new ValueOutOfRangeException(0, r_MaxCapacity - m_CurrentCapacity);
             }
-            m_CurrentCapacity += i_EnergyToAdd;
-        }
 
-        public void Fuel(float i_EnergyToAdd, EnergyType i_FuelType)
-        {
-            if (r_EnergyType == i_FuelType)
-            {
-                Fuel(i_EnergyToAdd);
-            }
+            m_CurrentCapacity += i_EnergyToAdd;
         }
          
         public EnergyType FuelType
@@ -92,8 +89,5 @@ namespace Ex03.GarageLogic
 
             return toString.ToString();
         }
-        
-
-
     }
 }

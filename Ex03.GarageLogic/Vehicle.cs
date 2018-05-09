@@ -69,14 +69,14 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public void Fuel(float i_Amount)
+        public void Charge(float i_Amount)
         {
-            m_Tank.Fuel(i_Amount);
+            
         }
 
-        public void Fuel(float i_EnergyToAdd, EnergyType i_FuelType)
+        public void FillTank(float i_EnergyToAdd, EnergyType i_FuelType)
         {
-            m_Tank.Fuel(i_EnergyToAdd, i_FuelType);
+            m_Tank.FillTank(i_EnergyToAdd, i_FuelType);
         }
 
         protected Tank Tank
