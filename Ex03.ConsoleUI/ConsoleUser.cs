@@ -34,10 +34,14 @@ namespace Ex03.ConsoleUI
                             case 3:
                                 changeVehiclesStatus();
                                 break;
-                            
-
-
-
+                            case 4:
+                                inflateWeels();
+                                break;
+                            case 5:
+                                fuelVehicle();
+                                break;
+                            case 6:
+                                break;
                             case 7:
                                 printAllVehicles();
                                 break;
@@ -76,12 +80,31 @@ namespace Ex03.ConsoleUI
             }
         }
 
+        private void fuelVehicle()
+        {
+            Console.WriteLine("Enter the amount of fuel to be added");
+            string stringAmount = Console.ReadLine();
+            float floatAmount;
+            if(!float.TryParse(stringAmount, out floatAmount))
+            {
+                throw new FormatException();
+            }
+
+            Console.WriteLine("Enter the wanted fuel type");
+            int intFuelType = getIntInRanges(0, 3);
+            m_Garage.fuelVehicle(getLicnsePlateFromUser(), (EnergyType)intFuelType, floatAmount);
+        }
+
+        private void inflateWeels()
+        {
+            string licensePlate = getLicnsePlateFromUser();
+            m_Garage.InflateAllWheelsToMax(licensePlate);
+        }
         private void showLicensePlatesByState()
         {
             Console.Clear();
             Console.WriteLine("Enter 0 to show from In Repair vehicels. 1 to show from Repaired vehicles. 2 to Show from Paid vehicles. 3 to show all licnse plates. ");
             int vehicleStateInt = getIntInRanges(0, 3);
-
             if(vehicleStateInt == 3)
             {
                 Console.WriteLine(m_Garage.GetAllLicensePlates());
@@ -262,7 +285,18 @@ namespace Ex03.ConsoleUI
 
         private void changeVehiclesStatus()
         {
+            string licensePlate = getLicnsePlateFromUser();
+            Console.WriteLine("Enter wanted state: 0 - in repair. 1 - repaired. 2 - paid");
+            int intState = getIntInRanges(0, 2);
+            m_Garage.ChangeVehicleState(licensePlate, (VehicleState)intState);
+       }
 
+        private string getLicnsePlateFromUser()
+        {
+            Console.WriteLine("Enter the vehicle's license plate");
+            string licensePlate = Console.ReadLine();
+
+            return licensePlate;
         }
     }
 }

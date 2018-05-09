@@ -9,23 +9,6 @@ public enum VehicleState
     Paid
 }
 
-/*
- המערכת תספק את הפונקציונאליות הבאה למשתמש בה:
-1. י"להכניס" רכב חדש למוסך. אם מנסים להכניס רכב שכבר נמצא במוסך
-(עפ"י מספר רישוי),
-המערכת תוציא הודעה מתאימה ותשתמש ברכב שכבר נמצא במוסך
-(ותעביר את מצב הרכב ל- "בתיקון")
-2. להציג את רשימת את מספרי הרישוי של הרכבים במוסך, עם אפשרות לסינון לפי המצב
-שלהם במוסך.
-3. לשנות מצב של רכב במוסך (מספר רישוי, המצב החדש).י
-4. לנפח אוויר בגלגלים של רכב למקסימום (לפי מספר רישוי)י
-5. לתדלק רכב שמונע ע"י דלק (מספר רישוי, סוג דלק למילוי, כמות למילוי)י
-6. להטעין רכב חשמלי (מספר רישוי, כמות דקות להטענה)י
-7. להציג נתונים מלאים של רכב לפי מספר רישוי 
-(מספר רישוי, שם דגם, שם בעלים, מצב במוסך, פירוט הגלגלים 
-(לחץ אוויר ויצרן), מצב דלק + סוג דלק / מצב מצבר, ושאר הפרטים הרלוונטיים לסוג הרכב הספציפי)
-*/
-
 namespace Ex03.GarageLogic
 {
     public class Garage
@@ -56,6 +39,7 @@ namespace Ex03.GarageLogic
             VehicleInGarage vehicleWithSameLicensePlate = find(m_VehicleToAdd.Vehicle.LicensePlate);
             if(vehicleWithSameLicensePlate != null)
             {
+                vehicleWithSameLicensePlate.VehicleState = VehicleState.InRepair;
                 throw new Exception("Vehicle Is Already in the garage! The state of the vehicle is changed to: in repair");
             }
 
@@ -89,30 +73,28 @@ namespace Ex03.GarageLogic
 
             return licensePlates.ToString();
         }
-
-        //3. לשנות מצב של רכב במוסך(מספר רישוי, המצב החדש).י    
-        private void changeVehicleState(string i_LicensePlate, VehicleState i_VehicleState)
+   
+        public void ChangeVehicleState(string i_LicensePlate, VehicleState i_VehicleState)
         {
-            //TODO
             VehicleInGarage vehicle = find(i_LicensePlate);
             if (vehicle == null)
             {
-                throw new Exception("Changing state failed. Vehicl's license plate wasn't found");
+                throw new Exception("Changing state failed. Vehicle's license plate wasn't found");
             }
 
             vehicle.VehicleState = i_VehicleState;
         }
 
 
-        private void InflateAllWheelsToMax(string i_LicensePlate)
+        public void InflateAllWheelsToMax(string i_LicensePlate)
         {
             VehicleInGarage vehicleWanted = find(i_LicensePlate);
-
-            if (vehicleWanted != null)
+            if (vehicleWanted == null)
             {
-                vehicleWanted.Vehicle.InflateAllWheelsToMaxCapaciy();
+                throw new Exception("Inflating failed. Vehicle's license plate wasn't found");
             }
 
+            vehicleWanted.Vehicle.InflateAllWheelsToMaxCapaciy();
         }
 
         public void fuelVehicle(string i_LicencePlate, EnergyType i_FuelType, float i_AddedFuel)
@@ -124,7 +106,6 @@ namespace Ex03.GarageLogic
             }
 
             vehicleInGarage.Vehicle.FillTank(i_AddedFuel, i_FuelType);
-
         }
 
         public void chargeVehicle(string i_LicencePlate, float i_AddedTime)
