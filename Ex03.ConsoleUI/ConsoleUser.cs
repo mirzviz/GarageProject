@@ -7,19 +7,6 @@ using Ex03.GarageLogic;
 
 namespace Ex03.ConsoleUI
 {
-    //public enum ActionOptions
-    //{
-    //    Exit = 0
-    //    AddVehicle = 1
-    //    ShowByStateOrAll = 2
-    //    ChangeVehicleState = 3
-    //    FillAirPressure = 4
-    //    FuelUpVehicle = 5
-    //    ChargeUpVehicle =6
-    //    VehicleInfo = 7
-    //    
-    //}
-
     public class ConsoleUser
     {
         Garage m_Garage;
@@ -27,9 +14,6 @@ namespace Ex03.ConsoleUI
         public ConsoleUser()
         {
             m_Garage = new Garage();
-
-
-
         }
 
         public void RunGarage()

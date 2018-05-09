@@ -16,13 +16,13 @@ namespace Ex03.GarageLogic
     public class Tank
     {
 
-        private readonly EnergyType r_FuelType;
+        private readonly EnergyType r_EnergyType;
         private float m_CurrentCapacity;
         private readonly float r_MaxCapacity;
 
         public Tank(EnergyType i_FuelType, float i_MaxCapacity)
         {
-            r_FuelType = i_FuelType;
+            r_EnergyType = i_FuelType;
             r_MaxCapacity = i_MaxCapacity;
         }
         
@@ -37,7 +37,7 @@ namespace Ex03.GarageLogic
 
         public void Fuel(float i_EnergyToAdd, EnergyType i_FuelType)
         {
-            if (r_FuelType == i_FuelType)
+            if (r_EnergyType == i_FuelType)
             {
                 Fuel(i_EnergyToAdd);
             }
@@ -47,7 +47,7 @@ namespace Ex03.GarageLogic
         {
             get
             {
-                return r_FuelType;
+                return r_EnergyType;
             }
         } 
         public float MaxCapacity
@@ -76,7 +76,7 @@ namespace Ex03.GarageLogic
         public override string ToString()
         {
             StringBuilder toString = new StringBuilder();
-            if(r_FuelType == EnergyType.Electricity)
+            if(r_EnergyType == EnergyType.Electricity)
             {
                 toString.AppendLine("Tank: Electric Tank");
                 toString.AppendLine();
@@ -86,7 +86,7 @@ namespace Ex03.GarageLogic
             {
                 toString.Append("Tank: Fuel Tank");
                 toString.AppendLine();
-                toString.AppendFormat("{0} Liters of {1} fuel are left out of {2} liters", m_CurrentCapacity, r_FuelType , r_MaxCapacity);
+                toString.AppendFormat("{0} Liters of {1} fuel are left out of {2} liters", m_CurrentCapacity, r_EnergyType , r_MaxCapacity);
             }
             toString.AppendLine();
 

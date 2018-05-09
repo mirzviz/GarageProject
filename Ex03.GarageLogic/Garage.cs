@@ -47,6 +47,7 @@ namespace Ex03.GarageLogic
                     vehicleWanted = vehicle;
                 }
             }
+
             return vehicleWanted;
         }
         
@@ -58,6 +59,12 @@ namespace Ex03.GarageLogic
         */
         public void AddVehicle(VehicleInGarage m_VehicleToAdd)
         {
+            VehicleInGarage vehicleWithSameLicensePlate = find(m_VehicleToAdd.Vehicle.LicensePlate);
+            if(vehicleWithSameLicensePlate != null)
+            {
+                throw new Exception("Vehicle Is Already in the garage! The state of the vehicle is changed to: in repair");
+            }
+
             m_Vehicles.Add(m_VehicleToAdd);
         }
 
